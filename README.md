@@ -1,5 +1,5 @@
 # Resource Sharing 4 Sustainable CPPS
-Choose a self-explaining name for your project.
+This project contains all the sources related to the article: "Resource sharing in Cyber-physical Production Systems: exploring hidden pathways to sustainable manufacturing"
 
 ## Description
 Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
