@@ -14,14 +14,17 @@
 
 text {
   font-family: sans-serif;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 10px;
 }
 
 </style>
-<svg width="1400" height="1000"></svg>
+<svg width="5400" height="5000"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
+
+var fontsize = 60;
+var padding = 100;
+
 
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
@@ -39,7 +42,6 @@ d3.json("http://localhost/direct-correlation-graph.json", function(error, graph)
 	// START
 	//csúcsok
 	var radius;
-	var padding = 30;
 	if(width > height)
 		radius = height/2-padding;
 	else
@@ -64,27 +66,23 @@ d3.json("http://localhost/direct-correlation-graph.json", function(error, graph)
 	//!!!kihasználjuk, hogy a nodeokban az id-k és a linkeknél a sourceok sorban vannak! Ha nincsenek, akkor pl egy sort kell előtte
 	var lastLink = 0;
 	for(var i = 0; i < graph.nodes.length-2; ++i){
-		var currMax = 0;
+		var currMax = -1;
 		var currMaxID = -1;
 		while(graph.nodes[i].id == graph.links[lastLink].source && lastLink < graph.links.length){
-			console.log(graph.nodes[i].id + " " + graph.links[lastLink].source);
 			if(graph.links[lastLink].value > currMax){
 				currMax = graph.links[lastLink].value;
 				currMaxID = lastLink;
 			}
 			++lastLink;
 		}
-		if (graph.links[currMaxID] !== undefined) {
-			graph.links[currMaxID].value = 36;
-		} else {
-		//Akos nem tudom!
+		graph.links[currMaxID].value = 36;
 	}	
 	//élvastagság csoportosítása
 	var groupCount = 10;
 	var breakingPoint = 1/groupCount;
 	var widthPerGroup = 4/groupCount; //pixelvastagság
 	for(var i = 0; i < graph.links.length; ++i){
-		if(graph.links[i].value != 36){
+		if(graph.links[i].value != 36 && graph.links[i].value > 0){
 			graph.links[i].value = graph.links[i].value/breakingPoint*widthPerGroup;
 			graph.links[i].value = graph.links[i].value*graph.links[i].value;
 		}
@@ -119,8 +117,10 @@ d3.json("http://localhost/direct-correlation-graph.json", function(error, graph)
       .text(function(d) {
         return d.id;
       })
-      .attr('x', 20)
-      .attr('y', 3);
+      .attr('x', getLabelX)
+      .attr('y', getLabelY)
+	  .attr('font-weight', 'bold')
+	  .style('font-size', 40);
 
   node.append("title")
       .text(function(d) { return d.id; });
@@ -145,6 +145,28 @@ d3.json("http://localhost/direct-correlation-graph.json", function(error, graph)
         })
   }
 });
+
+function getLabelX(d){
+	if(d.y > height*19/20)
+		return -80;
+	else if(d.y < height/20)
+		return -80;
+	else if(d.x < width/2)
+		return -300;
+	else
+		return 16;
+}
+
+function getLabelY(d){
+	if(d.y > height*19/20)
+		return 60;
+	else if(d.y < height/20)
+		return -20;
+	else if(d.x < width/2)
+		return 5;
+	else
+		return 5
+}
 
 function dragstarted(d) {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
