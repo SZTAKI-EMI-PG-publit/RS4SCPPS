@@ -150,21 +150,6 @@ public class TermSimilarityUtility {
         return term_vector_hmap;
     }
 
-    /*public static Map.Entry<String, HashMap<String, Integer>> MergeDocList (List<Map.Entry<String, HashMap<String, Integer>>> list2Merge, int maxNumOfTerms) {
-        //We put the first doc in the merged list by default
-        String mergedDocName = list2Merge.get(0).getKey();
-        HashMap<String, Integer> mergedTermVector = SortByValueDescending(list2Merge.get(0).getValue());
-        System.out.println("Setting the first doc in merged list '"+mergedDocName+"'");
-        for (int index=1; index<list2Merge.size(); index++) {
-            String docName = list2Merge.get(index).getKey();
-            System.out.println("...Merging "+docName);
-            System.out.println("...Key/Values: "+docName+": "+list2Merge.get(index).getValue());
-            //Recursive function which merges the current merged term-vector with the next doc's one in the doc base list
-            mergedTermVector = SortByValueDescending(MergeHashMaps (mergedTermVector, SortByValueDescending(list2Merge.get(index).getValue()), 100));
-        }
-        return Map.entry(mergedDocName, mergedTermVector);
-    }*/
-
     public static HashMap<String, Integer> MergeHashMaps (HashMap<String, Integer> hm1, HashMap<String, Integer> hm2, int maxNumOfTerms)
     {
         System.out.println("...Merging Hash Maps up to ("+maxNumOfTerms+") elements");
@@ -289,7 +274,7 @@ public class TermSimilarityUtility {
         return lhmDocList2Scale;
     }
 
-    /*public static String toExcelString (Map.Entry<String, HashMap<String, Integer>> docToString, boolean forCorrelation) {
+    public static String toExcelString (Map.Entry<String, HashMap<String, Integer>> docToString, boolean forCorrelation) {
         StringBuilder theString = new StringBuilder();
         final String BLANK_SPACE = " ";
         theString.append("(").append(docToString.getValue().entrySet().size()).append(")").append(BLANK_SPACE).append(docToString.getKey()).append(":");
@@ -300,7 +285,7 @@ public class TermSimilarityUtility {
             theString.append(";");
         }
         return theString.toString();
-    }*/
+    }
 
     //sim(x,y)=x⋅y||x||||y||
     public static SimilarityEntry calculateCosineSimilarity (Map.Entry<String, List<Map.Entry<Term, Integer>>> vector1, Map.Entry<String, List<Map.Entry<Term, Integer>>> vector2) {
@@ -461,6 +446,7 @@ public class TermSimilarityUtility {
         }
     }
 
+    //We can tune statistics on a specific domain or on all of them (null)
     public static void calulateTermStatistics (DocumentBase docBase, String specificDomain) {
         HashMap<String, TermCorrelationStatistics> termsStatistics = new HashMap<String, TermCorrelationStatistics>();
         for (Document theDoc: docBase.getDocumentList()) {
@@ -468,7 +454,6 @@ public class TermSimilarityUtility {
             for (SimilarityEntry theSimilEntry: theDoc.getDirectCorrelations()) {
                 if (theSimilEntry.getCorrelatedTermPair()!= null) {
                     for (Map.Entry<Term, Term> theTermPair: theSimilEntry.getCorrelatedTermPair()) {
-                        //We can tune statistics on a specific domain or on all of them (null)
                         //System.out.println("specificDomain:"+specificDomain+" | "+
                         //        "theDoc: "+theDoc.getDocName().toLowerCase().trim()+" | "+
                         //        "theSimilEntry doc: "+theSimilEntry.getCorrelatedDocument().toLowerCase().trim());
