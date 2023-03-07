@@ -11,7 +11,7 @@ public class TermSimilarityUtility {
     public static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("0.00");
     public static final DecimalFormat DECIMAL_FORMAT_GRAPH = new DecimalFormat("0");
 
-    /*public static final Map<String, Integer> DOCUMENT_GROUP_IDS = Stream.of(new Object[][] {
+    public static final Map<String, Integer> DOCUMENT_GROUP_IDS = Stream.of(new Object[][] {
             { "SB", 0 },
             { "SP", 1 },
             { "CPPS", 2 },
@@ -19,14 +19,6 @@ public class TermSimilarityUtility {
             { "CE", 4 },
             { "UN5P", 5 },
             { "UNSDG", 6 },
-    }).collect(Collectors.toMap(data -> (String) data[0], data -> (Integer) data[1]));*/
-
-    public static final Map<String, Integer> DOCUMENT_GROUP_IDS = Stream.of(new Object[][] {
-            { "2001-2005", 0 },
-            { "2006-2010", 1 },
-            { "2011-2015", 2 },
-            { "2016-2020", 3 },
-            { "2021-2022", 4 }
     }).collect(Collectors.toMap(data -> (String) data[0], data -> (Integer) data[1]));
 
     static final String[] TOO_GENERAL_WORDS = {"term", "publication", "area", "year"};
