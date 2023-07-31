@@ -1,14 +1,14 @@
-# Resource Sharing 4 Sustainable CPPS
-This project contains all the sources related to the article: "Resource sharing in Cyber-physical Production Systems: exploring hidden pathways to sustainable manufacturing"
+# TowardsrResource sharing for sustainable CPPS
+This project contains all the sources related to the article: "Exploring hidden pathways to sustainable manufacturing — Towards resource sharing in cyber-physical production systems"
 
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+This repository is the collection of JAVA sources and additional files which help replicate, track and validate all the computations backboning the methodology, results and discussion presented in the paper. 
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+Just download the JAVA project and open it in any JAVA supporting IDE. Excel, CSV and text files are intended for support and offer a more detailed explanation and validation of the results. Initial term-vectors of the corpus are contained as a pre-formatted string for simplicity of replication. To run the project, just start the "Main.java" class and follow the instructions in the terminal.
 
 ## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Should you encounter any problem, just contact me at my institutional email address.
 
 ## Contributing
 This project is not intended for open contributions at the moment.
@@ -17,7 +17,7 @@ This project is not intended for open contributions at the moment.
 Show your appreciation to those who have contributed to the project.
 
 ## License
-For open source projects, say how it is licensed.
+Not open source projects at the moment.
 
 ## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+I run out of time at the moment. Development is temporarily stopped down and will resume with the next steps indicated in the paper.
