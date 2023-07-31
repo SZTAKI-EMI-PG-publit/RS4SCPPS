@@ -1,4 +1,4 @@
-# TowardsrResource sharing for sustainable CPPS
+# Towards resource sharing for sustainable CPPS
 This project contains all the sources related to the article: "Exploring hidden pathways to sustainable manufacturing — Towards resource sharing in cyber-physical production systems"
 
 ## Description
