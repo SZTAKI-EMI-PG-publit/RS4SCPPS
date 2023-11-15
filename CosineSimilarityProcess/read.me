@@ -3,18 +3,19 @@ The folder contains two files, which help better understand the operational phas
 A) Document base and method's steps (SustainabilityDocBase_and_CosineSimilarityProcess-Final.xlsx)
   - It contains several tabs, whose aim is explained below:
     -- Major points in HITECS: in brief, the approach used for the TA and terms extraction
-    -- Term-vector Base: list of documents (with IDs) and their vectorized form (term + term frequency) of the original source.
-    -- 
-    -- 
-    -- 
-    -- 
-    -- 
-    -- 
-    -- 
-    -- 
-    -- 
+    -- Term-vector Base: the list of documents (with IDs) and their vectorized form (term + term frequency) of the original source.
+    -- Lemmatization: the list of vectorized documents after lemmatization
+    -- Reduction-Aggregation: the list of vectorized documents after reduction and aggregation of terms
+    -- Local Docs Scaling: the list of vectorized documents after scaling the terms frequencies in domains with several sources
+    -- Local Docs Merging: the list of vectorized documents after merging the vectors in those domains having several sources
+    -- Overall Doc Base Scaling: the list of vectorized documents after global scaling (corpus-level)
+    -- Stemmed Doc Base: the list of vectorized documents after stemming
+    -- Direct Correlation Row Results: the list of all correlation for a given doc-pair, with direct correlation value (from cosine similarity) and list of terms determing the correlation matching
+    -- DC Matrix: representation of direct correlations in a matrix form, with visual highlight of values
+    -- DC Network: visualization of the documents correlation matrix in a network form, highlighting major DC connections
+    -- DC Terms Ranking and Statistics: list of all correlation terms and their ranking dimensions. It is the basis of illustrations and graphics presented and commented in the discussion section of the paper.
 
 B) Stop-words (term_vectorization_stop_words.txt)
   - It containes all the terms (stop-words) which are not considered in the analysis of the direct correlation. It is the merging of two major word sets:
     -- Conjunctions and intercalary words of speech
-    -- Terms representing key-words, definitions, and titles of the documents in corpus (used in document selection queries but not to be used in the correlation analysis, in compliance with HITECS logic).
+    -- Terms representing the key-words, definitions, and titles of the documents in corpus, used for the selection of document (queries) but NOT TO be used in the match-making process of correlation analysis, in compliance with HITECS strategy.
