@@ -1,5 +1,5 @@
 # Towards resource sharing for sustainable CPPS
-This project contains all the sources related to the article: "Exploring hidden pathways to sustainable manufacturing — Towards resource sharing in cyber-physical production systems"
+This project contains all the sources related to the article: "Exploring hidden pathways to sustainable manufacturing for cyber-physical production systems"
 
 ## Description
 This repository is the collection of JAVA sources and additional files which help replicate, track and validate all the computations backboning the methodology, results and discussion presented in the paper. 
